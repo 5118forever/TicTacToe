@@ -1,16 +1,3 @@
-<<<<<<< Updated upstream
-/**
- * TicTacToe
- * UC1 initializes and displays an empty Tic-Tac-Toe board in a proper
- * grid format. This use case introduces 2D arrays, nested loops,
- * and formatted console output.
- */
-public class TicTacToe {
-    static char[][] board = new char[3][3];
-    public static void main(String[] args) {
-        initializeBoard();
-        printBoard();
-=======
 import java.util.Random;
 import java.util.Scanner;
 public class TicTacToe {
@@ -27,7 +14,6 @@ public class TicTacToe {
         System.out.println("Slot entered: " + slot);
         System.out.println("Row: " + getRowFromSlot(slot));
         System.out.println("Column: " + getColFromSlot(slot));
->>>>>>> Stashed changes
     }
     static void initializeBoard() {
         for (int row = 0; row < 3; row++) {
@@ -50,10 +36,6 @@ public class TicTacToe {
             System.out.println("-------------");
         }
     }
-<<<<<<< Updated upstream
-}
-=======
-
     static void tossAndAssignSymbols() {
         Random random = new Random();
         int toss = random.nextInt(2);   // 0 or 1
@@ -95,4 +77,4 @@ public class TicTacToe {
     }
 }
 
->>>>>>> Stashed changes
+
