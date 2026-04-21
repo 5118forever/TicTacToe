@@ -1,14 +1,16 @@
-/**
- * TicTacToe
- * UC1 initializes and displays an empty Tic-Tac-Toe board in a proper
- * grid format. This use case introduces 2D arrays, nested loops,
- * and formatted console output.
- */
+import java.util.Random;
 public class TicTacToe {
     static char[][] board = new char[3][3];
+    static boolean isHumanTurn;
+    
+    static char humanSymbol;
+    static char computerSymbol;
+
     public static void main(String[] args) {
         initializeBoard();
         printBoard();
+        tossAndAssignSymbols();
+        displayTossResult();
     }
     static void initializeBoard() {
         for (int row = 0; row < 3; row++) {
@@ -17,18 +19,41 @@ public class TicTacToe {
             }
         }
     }
+
     static void printBoard() {
         System.out.println("-------------");
-
         for (int row = 0; row < 3; row++) {
             System.out.print("| ");
-
             for (int col = 0; col < 3; col++) {
                 System.out.print(board[row][col] + " | ");
             }
-
             System.out.println();
             System.out.println("-------------");
+        }
+    }
+    static void tossAndAssignSymbols() {
+        Random random = new Random();
+        int toss = random.nextInt(2);   // 0 or 1
+
+        if (toss == 0) {
+            isHumanTurn = true;
+            humanSymbol = 'X';
+            computerSymbol = 'O';
+        } else {
+            isHumanTurn = false;
+            humanSymbol = 'O';
+            computerSymbol = 'X';
+        }
+    }
+
+    static void displayTossResult() {
+        System.out.println();
+        if (isHumanTurn) {
+            System.out.println("Human starts first with symbol " + humanSymbol);
+            System.out.println("Computer gets symbol " + computerSymbol);
+        } else {
+            System.out.println("Computer starts first with symbol " + computerSymbol);
+            System.out.println("Human gets symbol " + humanSymbol);
         }
     }
 }
